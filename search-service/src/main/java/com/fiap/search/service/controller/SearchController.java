@@ -2,13 +2,15 @@ package com.fiap.search.service.controller;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.sns.AmazonSNS;
+import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 import com.amazonaws.services.sns.model.PublishRequest;
 import com.amazonaws.services.sns.model.PublishResult;
 import com.fiap.search.service.domain.Ticket;
@@ -20,8 +22,21 @@ public class SearchController {
 	@Value("${aws.sns.arn}")
 	private String arn;
 	
-	@Autowired
+	@Value("${aws.credentials.acccess.key}")
+	private String accessKey;
+	
+	@Value("${aws.credentials.secret.key}")
+	private String secretKey;
+		
 	private AmazonSNS sns;
+	
+	public SearchController() {
+		BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+		sns = AmazonSNSClientBuilder
+				.standard()
+				.withCredentials(new AWSStaticCredentialsProvider(credentials))
+				.build();
+	}
 	
 	@GetMapping
 	@CrossOrigin("*")
