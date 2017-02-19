@@ -8,16 +8,17 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 @Configuration
 public class ServiceConfiguration {
-
-//	@Bean
-//	public AmazonSNS sns() {
-//		return AmazonSNSClientBuilder
-//				.defaultClient();
-//	}
+	
+	private final String REDIS_IP = "52.67.240.49";
+	private final int REDIS_PORT = 6379;
 	
 	@Bean
 	public RedisConnectionFactory connectionFactory() {
-		return new JedisConnectionFactory();
+		JedisConnectionFactory factory = new JedisConnectionFactory();
+		factory.setHostName(REDIS_IP);
+		factory.setPort(REDIS_PORT);		
+		
+		return factory;
 	}
 
 	@Bean
