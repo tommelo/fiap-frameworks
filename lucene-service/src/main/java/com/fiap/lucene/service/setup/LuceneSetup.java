@@ -106,6 +106,7 @@ public class LuceneSetup {
 	        PDFTextStripper textStripper = new PDFTextStripper();
 	        content = textStripper.getText(document);			        
 		    		    
+	        document.close();	        
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
