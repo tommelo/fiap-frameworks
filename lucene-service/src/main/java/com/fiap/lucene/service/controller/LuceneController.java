@@ -27,6 +27,7 @@ public class LuceneController {
 	@Autowired
 	private LuceneProcessor processor;
 	
+	@Autowired
 	@Value("${aws.sns.arn}")
 	private String arn;
 	
@@ -63,7 +64,7 @@ public class LuceneController {
 	
 	private void setup() {
 		SubscribeRequest subscribeReq = new SubscribeRequest()
-				.withTopicArn(arn)
+				.withTopicArn(arn)				
 				.withProtocol("http")
 				.withEndpoint("http://ec2-52-67-132-154.sa-east-1.compute.amazonaws.com:8080");
 		 
