@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class LuceneServiceApplication {
  
 	public static void main(String[] args) throws Exception {
-		//SpringApplication.run(LuceneServiceApplication.class, args);
 		new SpringApplicationBuilder(LuceneServiceApplication.class)			
 			.web(false)
 			.build()
