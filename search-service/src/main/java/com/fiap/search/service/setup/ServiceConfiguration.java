@@ -10,12 +10,12 @@ import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 @Configuration
 public class ServiceConfiguration {
 
-	@Bean
-	public AmazonSNS sns() {
-		return AmazonSNSClientBuilder
-				.standard()
-				.withCredentials(new InstanceProfileCredentialsProvider(true))
-				.build();
-	}
+//	@Bean
+//	public AmazonSNS sns() {
+//		return AmazonSNSClientBuilder
+//				.standard()
+//				.withCredentials(new InstanceProfileCredentialsProvider(true))
+//				.build();
+//	}
 	
 }

@@ -2,6 +2,7 @@ package com.fiap.search.service.controller;
 
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,16 +22,16 @@ public class SearchController {
 	
 	@Value("${aws.sns.arn}")
 	private String arn;
-	
-	@Value("${aws.credentials.acccess.key}")
-	private String accessKey;
-	
-	@Value("${aws.credentials.secret.key}")
-	private String secretKey;
-		
+
 	private AmazonSNS sns;
 	
-	public SearchController() {
+	@Autowired
+	public SearchController(
+			@Value("${aws.credentials.acccess.key}") 
+			String accessKey,
+			@Value("${aws.credentials.secret.key}")
+			String secretKey) {
+		
 		BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
 		sns = AmazonSNSClientBuilder
 				.standard()
