@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <style>
+        .container {
+            margin-top: 150px !important;
+        }
+        
+        .search-result {
+            margin-top: 20px;
+        }
+
+        .load-container {            
+            margin-top: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form role="form">
+            <div class="row">
+                <div class="col-xs-10">
+                    <h2>Apache Lucene Search Engine</h2>
+                    <div class="input-group input-group-lg">
+                        <input type="text" id="search-content" name="search-content" class="form-control" />
+                        <div class="input-group-btn">
+                            <button type="button" class="btn" id="search" name="search">Search</button>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="row" id="load" style="display: none">
+            <div class="col-xs-10 load-container">
+                <img src="img/load.gif" style="margin:auto" width="50" height="50">
+            </div>
+        </div>
+
+        <div class="row" id="notfound" style="display: none">
+            <div class="col-xs-10 load-container">
+                <h4>No content found for this query search</h4>
+            </div>
+        </div>
+
+        <div class="row" id="result" style="display: none">
+            <div class="col-xs-10 search-result">
+                <h4>Search result:</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>File</th>
+                            <th>Score</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody id="result-body">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>    
+</body>
+
+</html>
