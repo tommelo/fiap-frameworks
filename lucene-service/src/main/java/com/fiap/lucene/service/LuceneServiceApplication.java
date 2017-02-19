@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class LuceneServiceApplication {
  
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {		
 		new SpringApplicationBuilder(LuceneServiceApplication.class)			
 			.web(false)
 			.build()
