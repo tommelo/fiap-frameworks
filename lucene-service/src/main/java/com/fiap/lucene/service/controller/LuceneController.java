@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -29,7 +28,6 @@ import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 import com.amazonaws.services.sns.model.ConfirmSubscriptionRequest;
 import com.amazonaws.services.sns.model.SubscribeRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fiap.lucene.service.domain.ServiceStatus;
 import com.fiap.lucene.service.processor.LuceneProcessor;
 
 @Component
@@ -41,11 +39,8 @@ public class LuceneController implements CommandLineRunner {
 	@Value("${aws.sns.endpoint.protocol}")
 	private String protocol;
 	
-	@Value("@{jetty.server.port}")
-	private int port;
-	
-	@Autowired
-	private LuceneProcessor processor;
+	@Value("${jetty.server.port}")
+	private int port;	
 		
 	@Value("${aws.sns.arn}")
 	private String arn;
@@ -55,6 +50,9 @@ public class LuceneController implements CommandLineRunner {
 	
 	@Value("${aws.credentials.secret.key}")
 	private String secretKey;
+	
+	@Autowired
+	private LuceneProcessor processor;
 	
 	private AmazonSNS sns;
 	
