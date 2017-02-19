@@ -1,7 +1,7 @@
 package com.fiap.lucene.service;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -11,7 +11,11 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class LuceneServiceApplication {
  
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(LuceneServiceApplication.class, args);
+		//SpringApplication.run(LuceneServiceApplication.class, args);
+		new SpringApplicationBuilder(LuceneServiceApplication.class)			
+			.web(false)
+			.build()
+			.run(args);
 	}
 	
 }
