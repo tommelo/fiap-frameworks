@@ -34,6 +34,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+<dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-server</artifactId>
+    <version>9.4.0.v20161208</version>
+</dependency>
+
+
 		<dependency>
 		    <groupId>com.amazonaws</groupId>
 		    <artifactId>aws-java-sdk-sns</artifactId>
