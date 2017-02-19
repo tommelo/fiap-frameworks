@@ -64,7 +64,7 @@ public class LuceneController {
 	
 	private void setup() {
 		SubscribeRequest subscribeReq = new SubscribeRequest()
-				.withTopicArn(arn)				
+				.withTopicArn("arn:aws:sns:sa-east-1:127262864231:sns-lucene")				
 				.withProtocol("http")
 				.withEndpoint("http://ec2-52-67-132-154.sa-east-1.compute.amazonaws.com:8080");
 		 
